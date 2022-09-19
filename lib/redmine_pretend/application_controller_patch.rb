@@ -1,6 +1,4 @@
-if Rails::VERSION::MAJOR < 6
-  require_dependency 'application_controller'
-end
+require_dependency 'application_controller' if Rails::VERSION::MAJOR < 6
 
 module PretendPatches
   module ApplicationControllerPatch
@@ -27,5 +25,5 @@ module PretendPatches
 end
 
 unless ApplicationController.included_modules.include?(PretendPatches::ApplicationControllerPatch)
-  ApplicationController.send(:include, PretendPatches::ApplicationControllerPatch)
+  ApplicationController.include PretendPatches::ApplicationControllerPatch
 end
