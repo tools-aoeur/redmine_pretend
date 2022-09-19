@@ -1,4 +1,6 @@
-require_dependency 'application_controller'
+if Rails::VERSION::MAJOR < 6
+  require_dependency 'application_controller'
+end
 
 module PretendPatches
   module ApplicationControllerPatch

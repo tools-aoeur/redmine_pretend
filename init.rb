@@ -1,5 +1,9 @@
 Rails.logger.info 'Starting Pretend plugin'
 
+if Rails::VERSION::MAJOR >= 6
+  Rails.autoloaders.main.ignore("#{__dir__}/lib")
+end
+
 Redmine::Plugin.register :redmine_pretend do
   name 'Redmine Pretend plugin'
   author 'Leonid Batizhevsky (orig)'
