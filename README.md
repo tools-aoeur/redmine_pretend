@@ -1,26 +1,26 @@
-Pretend plugin for Redmine
+Pretend Plugin for Redmine
 ===============
 
-*Redmine plugin for quick change of the user*
+*Redmine plugin for quickly switching user accounts*
 
-When you admin and solving user problems often hear: "It is not working". And the best way to check: login as user.
-But you didn't know password.
-In this case, need to use this plugin:
-If you has admin role you may go to user account page and press "Pretend" button. 
-Now you pretended selected user.
-When you tired you can always back to your account pressed  "stop pretending" in the top of page.
+When you're an admin solving user problems, you often hear: "It's not working". The best way to verify this is to log in as the user, but you don't know their password.
 
-Supports redmine >= 4.0 
+This plugin solves that problem:
+If you have an admin role, you can go to any user's account page and press the "Pretend" button.
+You will then be logged in as that selected user.
+When you're finished, you can always return to your account by pressing "Stop Pretending" at the top of the page.
+
+Supports Redmine >= 6.1
 
 Install
 =======
 
-* Expand the plugin into the plugins directory
-* Restart redmine
+* Extract the plugin into the plugins directory
+* Restart Redmine
 
 TODO
 ========
-For my sad, this project is without any tests.
+Unfortunately, this project currently has no tests.
 
 License
 =======

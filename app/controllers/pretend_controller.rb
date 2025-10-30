@@ -19,7 +19,7 @@ class PretendController < ApplicationController
       set_user(real_user)
       reset_pretent_storage
     end
-    redirect_to :back
+    redirect_back(fallback_location: root_path)
   end
 
   private
