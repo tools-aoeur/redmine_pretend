@@ -16,7 +16,3 @@ module RedminePretend
     end
   end
 end
-
-unless ApplicationController.included_modules.include?(RedminePretend::ApplicationControllerPatch)
-  ApplicationController.include RedminePretend::ApplicationControllerPatch
-end
