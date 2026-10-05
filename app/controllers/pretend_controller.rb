@@ -1,14 +1,14 @@
 class PretendController < ApplicationController
   def create
-    render_403 unless can_pretend?
+    # A repeated POST (double click, stale tab) must not nest impersonations.
+    return redirect_back(fallback_location: root_path) if pretending?
+    return render_403 unless can_pretend?
 
-    unless pretending?
-      remember_current_user
-      user = User.find(params[:id])
+    remember_current_user
+    user = User.find(params[:id])
 
-      logger.info "#{ User.current } is prending as #{user}"
-      set_user(user)
-    end
+    logger.info "#{ User.current } is prending as #{user}"
+    set_user(user)
 
     redirect_to user_path(user)
   end
