@@ -1,5 +1,4 @@
-Pretend Plugin for Redmine
-===============
+# Pretend Plugin for Redmine
 
 *Redmine plugin for quickly switching user accounts*
 
@@ -12,17 +11,27 @@ When you're finished, you can always return to your account by pressing "Stop Pr
 
 Supports Redmine >= 6.1
 
-Install
-=======
+## Install
 
 * Extract the plugin into the plugins directory
 * Restart Redmine
 
-TODO
-========
-Unfortunately, this project currently has no tests.
+## Behaviour
 
-License
-=======
+* Only a logged-in admin can pretend; anyone else gets a 403 and the session is left untouched.
+* While pretending, further "Pretend" requests (double click, stale tab) are ignored and redirect back, so impersonations never nest.
+* The real user is kept in `session[:real_user_id]` until "Stop Pretending".
+
+## Tests
+
+The specs use RSpec and live in `spec/`. From a Redmine checkout with the plugin installed:
+
+```sh
+bundle exec rails redmine:plugins:test NAME=redmine_pretend
+```
+
+The GitHub Actions workflow in `.github/workflows/6_1.yml` runs the same command.
+
+## License
+
 This software is under the [MIT License](http://www.opensource.org/licenses/MIT).
-
